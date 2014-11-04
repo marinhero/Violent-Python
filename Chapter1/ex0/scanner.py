@@ -8,6 +8,25 @@ import sys
 import os
 import socket
 
+
+'''
+    TODO:
+
+    - Goal: Refactor this script into a general purpose vulnerability scanner
+
+    - Read Vuln deffinitions text file from Command line
+    - Read target from command line (URL)
+    - Read port list file from command line (comma separated)
+
+    - Validate the parameter number
+    - Be able to select bewteen ranged attack or targeted
+
+    - Execution example:
+        user@host: ./scanner.py TARGET PORTS DEFFINITIONS
+        user@host: ./scanner.py -r TARGET PORTS DEFFINITIONS
+'''
+
+
 def retBanner(ip, port):
     try:
         socket.setdefaulttimeout(2)
@@ -16,7 +35,8 @@ def retBanner(ip, port):
         banner = s.recv(1024)
         return banner
     except Exception, e:
-       return  str(e)
+        return str(e)
+
 
 def checkFile(filename):
     try:
@@ -42,6 +62,7 @@ def checkVulns(banner, filename):
         else:
             print '[-] FTP Server is not vulnerable'
     return
+
 
 def main():
     portList = [21, 22, 25, 80, 110, 443]
