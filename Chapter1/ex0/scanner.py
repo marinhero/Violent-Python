@@ -17,9 +17,8 @@ import socket
     - Read Vuln deffinitions text file from Command line
     - Read target from command line (URL)
     - Read port list file from command line (comma separated)
-
     - Validate the parameter number
-    - Be able to select bewteen ranged attack or targeted
+    - Be able to select between ranged attack or targeted
 
     - Execution example:
         user@host: ./scanner.py TARGET PORTS DEFFINITIONS
@@ -60,7 +59,7 @@ def checkVulns(banner, filename):
         if line.strip('\n') in banner:
             print "[+] Server is Vulnerable: " + banner.strip('\n')
         else:
-            print '[-] FTP Server is not vulnerable'
+            print '[-] Server is not vulnerable'
     return
 
 
